@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-size: 100%;
+    background: linear-gradient(68.15deg, #21d3df 16.62%, #0e3352 85.61%);
+
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.cabecalho-imagem {
+    height: 82px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.cabecalho-menu-item {
+    font-family: "Sarala", sans-serif;
+    color: #FFF2E7;
+    font-weight: 400;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.cabecalho-menu-item:hover{
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+
+/*Estilização do menu mobile*/
+.menu-mobile{
+    background-color: rgba(0, 0, 0, 0.377);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.menu-mobile nav a{
+    color:#ECD6C4;
+    display: block;
+    padding: 30px 30px;
+    font-size: 29px;
+    
+}
+
+#btn-menu{
+    width: 70px;
+    height: 70px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.linha {
+    width: 30px;
+    height: 3px;
+    background-color: #ECD6C4;
+    display: block;
+    margin: 10px auto;
+    position: relative;
+    transform-origin: center;
+    transition: .2s;
+}
+
+#btn-menu.ativar .linha:nth-child(1){
+    transform: translateY(15px) rotate(-45deg);
+    background-color: red;
+}
+
+#btn-menu.ativar .linha:nth-child(2){
+    opacity: 0; 
+}
+
+#btn-menu.ativar .linha:nth-child(3){
+    transform: translateY(-10px) rotate(45deg);
+    background-color: red;
+}
+
+.menu-mobile nav a:hover {
+    background-color: rgba(0, 0, 0, 0.473);
+}
+
+@keyframes flutuar {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(30px);
+    }
+}
+
+.conteudo {
+    border-top: 0.4px solid #FFF2E7;
+    margin-bottom: 48px;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.conteudo-principal-escrito{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conteudo-principal-escrito h1 {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-size: 64px;
+    color: #FFF2E7;
+}
+
+.conteudo-principal-escrito h2 {
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color:#FFF2E7;
+}
+
+.meAdicione {
+    background-color: #eeded1;
+    width: 180px;
+    height: 60px;
+    border: none;
+    box-shadow: 4px 6px 4px rgba(0,0,0,0.25);
+    border-radius: 20px;
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2F2325;
+}
+
+.meAdicione:hover{
+    opacity: 50%;
+}
+
+.conteudo-principal-imagem{
+    height: 430px;
+    animation: flutuar 2s ease-in-out infinite alternate;
+}
+
+.conteudo-secundario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.conteudo-secundario h3 {
+    border-top: 0.4px solid #FFF2E7;
+    padding-top: 48px;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #FFF2E7;
+    margin-bottom: 16px;
+}
+
+.conteudo-secundario p {
+    font-family: "Sarala", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #eeded1;
+}
+
+.rodape {
+    padding: 20px;
+    border-top: 0.4px solid #FFF2E7;
+}
+
+.rodape-imagem{
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1020px){
+    
+    .cabecalho-menu-item{
+        display: none;
+    }
+
+    .conteudo-principal{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .meAdicione{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .conteudo-principal-imagem{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .conteudo-secundario p{
+        text-justify: auto;
+        font-size: 26px;
+        padding: 20px;
+    }
+
+    #btn-menu{
+        display: block;
+    }
+
+    .menu-mobile.abrir{
+        visibility: visible;
+        height: calc(100vh - 120px);
+        
+    }
+
+    body.menu-mobile-aberto .conteudo-principal-imagem {
+        animation: none; 
+    }
+
+}
+
+
+@media screen and (max-width: 375px){
+    .conteudo-principal-imagem{
+        height: 300px;
+    }
+}
+
